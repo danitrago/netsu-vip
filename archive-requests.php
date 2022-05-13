@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Custom Template */
+/* Template Name: Archive Requests NETSU */
 
 get_header();
 ?>
