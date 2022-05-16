@@ -7,17 +7,22 @@ get_header();
 <main id="main" class="content-wrapper" style="display:flex">
 	<div>
 		<h3>Filtrar</h3>
-		<?php
-		$terms = get_terms([
-			'taxonomy' => 'request_type',
-			'hide_empty' => false,
-		]);
-		foreach ($terms as $term) {
-			echo $term->slug . " : ";
-			echo $term->name;
-			echo "<br><br>";
-		}
-		?>
+		<h5><?php echo get_post_type() ?></h5>
+		<ul>
+			<?php
+			$terms = get_terms([
+				'taxonomy' => 'request_type',
+				'hide_empty' => true,
+			]);
+			foreach ($terms as $term) {
+				$urlBase = get_site_url();
+				$postType = get_post_type();
+				echo "<li>
+					<a href='{$urlBase}/{$postType}/?request_type={$term->slug}'>{$term->name}</a>
+				</li>";
+			}
+			?>
+		</ul>
 	</div>
 	<div>
 		<?php if (have_posts()) : ?>
@@ -70,10 +75,11 @@ get_header();
 				</div>
 		<?php
 			endwhile;
-			// Navigation
-			// the_post_navigation();
+		// Navigation
+		// the_post_navigation();
 		else :
 		// No Post Found
+		echo '<h5>Ups, no se encontraron resultados</h5>';
 		endif;
 		?>
 	</div>
