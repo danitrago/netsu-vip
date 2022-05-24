@@ -16,13 +16,14 @@ get_header();
 		?>
 			<div class="archive-item">
 				<div class="post-title">
-					<h1><?php the_title(); ?></h1>
+					<h1><small>ID:<?php echo get_the_ID(); ?></small> - <?php the_title(); ?></h1>
 				</div>
 
 				<div class="post-meta">
 					<hr />
-					<p><?php echo get_post_meta(get_the_ID(), 'estado', TRUE); ?></p>
-					<p><?php echo get_post_meta(get_the_ID(), 'vigencia', TRUE); ?></p>
+					<p>Estado: <?php echo get_post_meta(get_the_ID(), 'estado', TRUE); ?></p>
+					<p>Vigencia: <?php echo get_post_meta(get_the_ID(), 'fecha_de_cierre', TRUE); ?></p>
+					Marcas:
 					<ul>
 						<?php
 						foreach (get_post_meta(get_the_ID(), 'marcas', TRUE) as &$marca) {
@@ -31,13 +32,7 @@ get_header();
 						?>
 					</ul>
 				</div>
-
-				<div class="post-thumbnail">
-					<a href="<?php the_permalink(); ?>">
-						<?php the_post_thumbnail(); ?>
-					</a>
-				</div>
-
+				<hr />
 				<div class="post-content">
 					<?php the_content(); ?>
 				</div>
@@ -68,7 +63,7 @@ get_header();
 
 						<!-- post Valor -->
 						<p><label for="valor">Valor</label><br />
-						<input type="number" id="valor" value="" tabindex="1" size="20" name="valor" />
+							<input type="number" id="valor" value="" tabindex="1" size="20" name="valor" />
 						</p>
 
 						<!-- post tags -->
