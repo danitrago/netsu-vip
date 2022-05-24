@@ -29,7 +29,7 @@ get_header();
 						<a href="<?php the_permalink(); ?>">
 							<h2><?php the_title(); ?></h2>
 						</a>
-						<h4>Tipo: <?php $taxonomy_names = wp_get_post_terms(get_the_ID(), 'request_type');
+						<h4>Tipo: <?php $taxonomy_names = wp_get_post_terms(get_the_ID(), 'contract_type');
 									foreach ($taxonomy_names as $taxonomy) {
 										// echo $taxonomy->slug . " : ";
 										echo $taxonomy->name;

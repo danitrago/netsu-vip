@@ -58,7 +58,7 @@ get_header();
 
 						<!-- post Category -->
 						<p><label for="Category">Category:</label><br />
-						<p><?php wp_dropdown_categories('show_option_none=Category&tab_index=4&taxonomy=request_type'); ?></p>
+						<p><?php wp_dropdown_categories('show_option_none=Category&tab_index=4&taxonomy=contract_type'); ?></p>
 
 
 						<!-- post Content -->
