@@ -1,10 +1,5 @@
 <?php
 
-function createOffer()
-{
-    uploadOfferFile();
-}
-
 function uploadOfferFile()
 {
     if (isset($_FILES['adjunto'])) {
@@ -26,7 +21,7 @@ function uploadOfferFile()
 
         if (!in_array($ext, $allow_extensions)) {
             echo "Error: El archivo debe estar en formato PDF.";
-            return;
+            return false;
         }
 
         $content_directory = $wp_filesystem->wp_content_dir() . 'uploads/offers/';
@@ -40,15 +35,15 @@ function uploadOfferFile()
                 'post_content'   => '',
                 'post_status'    => 'inherit'
             ), $content_directory . $name_file);
-            registerOffer($upload_id);
-            // echo "Archivo subido con ID:" . $upload_id;
+            return $upload_id;
         } else {
             echo "Error: el archivo no fue subido.";
+            return false;
         }
     }
 }
 
-function registerOffer($idFile)
+function createOffer($idFile)
 {
     if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['action']) &&  $_POST['action'] == "new_post") {
         // Do some minor form validation to make sure there is content
@@ -85,5 +80,15 @@ function registerOffer($idFile)
         $pid = wp_insert_post($new_post);
         //insert taxonomies
         echo $pid . 'Hecho, oferta guardada';
+    }
+}
+
+function postingOffer()
+{
+    // upload file & create offer
+    $fileId = uploadOfferFile();
+    // create offer in content type
+    if ($fileId) {
+        createOffer($fileId);
     }
 }

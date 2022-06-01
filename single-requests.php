@@ -79,7 +79,7 @@ $current_user = wp_get_current_user();
 						<?php wp_nonce_field('new-post'); ?>
 					</form>
 
-					<?php createOffer(); ?>
+					<?php postingOffer(); ?>
 
 				</div>
 
