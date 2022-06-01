@@ -69,8 +69,12 @@ function createOffer($idFile)
                 'integrador' => $_POST['integrador'],
                 'valor' => $_POST['valor'],
                 'asesor_comercial' => $_POST['asesor_comercial'],
+                'telefono_de_asesor' => $_POST['telefono_de_asesor'],
+                'correo_electronico' => $_POST['correo_electronico'],
+                'vigencia' => $_POST['vigencia'],
+                'tiempo_de_entrega' => $_POST['tiempo_de_entrega'],
+                'notas' => $_POST['notas'],
                 'adjunto' => $idFile,
-                // 'adjunto' => $newupload,
             ),
             // 'tags_input'    => array($tags),
             'post_status'   => 'publish',           // Choose: publish, preview, future, draft, etc.
