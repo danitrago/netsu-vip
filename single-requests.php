@@ -2,6 +2,8 @@
 /* Template Name: Single Request NETSU */
 
 get_header();
+
+$current_user = wp_get_current_user();
 ?>
 
 <main id="main" class="content-wrapper">
@@ -47,29 +49,30 @@ get_header();
 					<form id="new_post" name="new_post" method="post" action="">
 
 						<!-- post name -->
-						<p><label for="title">Title</label><br />
-							<input type="text" id="title" value="" tabindex="1" size="20" name="title" />
+						<p><label for="title">Título</label><br />
+							<input type="text" id="title" value="<?php echo get_the_ID() ?> - OFERTA" readonly tabindex="1" size="20" name="title" />
 						</p>
 
-						<!-- post Category -->
-						<p><label for="Category">Category:</label><br />
-						<p><?php wp_dropdown_categories('show_option_none=Category&tab_index=4&taxonomy=contract_type'); ?></p>
-
-
-						<!-- post Content -->
-						<p><label for="description">Content</label><br />
-							<textarea id="description" tabindex="3" name="description" cols="50" rows="6"></textarea>
+						<!-- post name -->
+						<p><label for="integrador">Integrador</label><br />
+							<input type="text" id="integrador" value="<?php echo $current_user->user_login; ?>" readonly tabindex="1" size="20" name="integrador" />
 						</p>
 
 						<!-- post Valor -->
 						<p><label for="valor">Valor</label><br />
-							<input type="number" id="valor" value="" tabindex="1" size="20" name="valor" />
+							<input type="number" id="valor" value="" tabindex="1" size="20" name="valor" required />
 						</p>
 
-						<!-- post tags -->
-						<p><label for="post_tags">Tags:</label>
-							<input type="text" value="" tabindex="5" size="16" name="post_tags" id="post_tags" />
+						<!-- post name -->
+						<p><label for="asesor_comercial">Asesor comercial</label><br />
+							<input type="text" id="asesor_comercial" value="" tabindex="1" size="20" name="asesor_comercial" required />
 						</p>
+
+						<!-- post name -->
+						<p><label for="adjunto">Adjunto</label><br />
+							<input type="file" id="adjunto" value="" tabindex="1" size="20" name="adjunto" required />
+						</p>
+
 						<p align="right"><input type="submit" value="Publish" tabindex="6" id="submit" name="submit" /></p>
 
 						<input type="hidden" name="action" value="new_post" />

@@ -7,23 +7,28 @@ function createOffer()
         if (isset($_POST['title'])) {
             $title =  $_POST['title'];
         } else {
-            echo 'Please enter a  title';
+            echo 'Please enter a  title - se envió: ' . print_r($_POST);
             return;
         }
-        if (isset($_POST['description'])) {
-            $description = $_POST['description'];
-        } else {
-            echo 'Please enter the content';
-        }
-        $tags = $_POST['post_tags'];
+        // if (isset($_POST['description'])) {
+        //     $description = $_POST['description'];
+        // } else {
+        //     echo 'Please enter the content';
+        // }
+        // $tags = $_POST['post_tags'];
 
         // Add the content of the form to $post as an array
         $new_post = array(
             'post_title'    => $title,
-            'post_content'  => $description,
-            'post_category' => array($_POST['cat']),  // Usable for custom taxonomies too
-            'meta_input' => array('valor' => $_POST['valor']),
-            'tags_input'    => array($tags),
+            // 'post_content'  => $description,
+            // 'post_category' => array($_POST['cat']),  // Usable for custom taxonomies too
+            'meta_input' => array(
+                'integrador' => $_POST['integrador'],
+                'valor' => $_POST['valor'],
+                'asesor_comercial' => $_POST['asesor_comercial'],
+                // 'adjunto' => $newupload,
+            ),
+            // 'tags_input'    => array($tags),
             'post_status'   => 'publish',           // Choose: publish, preview, future, draft, etc.
             'post_type' => 'offers'  //'post',page' or use a custom post type if you want to
         );
