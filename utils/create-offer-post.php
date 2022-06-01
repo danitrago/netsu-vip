@@ -1,6 +1,49 @@
 <?php
 
-function createOffer()
+function uploadOfferFile()
+{
+    if (isset($_FILES['adjunto'])) {
+
+        if (!function_exists('wp_handle_upload')) {
+            require_once(ABSPATH . 'wp-admin/includes/file.php');
+        }
+
+        global $wp_filesystem;
+        WP_Filesystem();
+
+        $name_file = $_FILES['adjunto']['name'];
+        $tmp_name = $_FILES['adjunto']['tmp_name'];
+        $allow_extensions = ['pdf'];
+
+        // File type validation
+        $path_parts = pathinfo($name_file);
+        $ext = $path_parts['extension'];
+
+        if (!in_array($ext, $allow_extensions)) {
+            echo "Error: El archivo debe estar en formato PDF.";
+            return false;
+        }
+
+        $content_directory = $wp_filesystem->wp_content_dir() . 'uploads/offers/';
+        $wp_filesystem->mkdir($content_directory);
+
+        if (move_uploaded_file($tmp_name, $content_directory . $name_file)) {
+            $upload_id = wp_insert_attachment(array(
+                'guid'           => $content_directory . $name_file,
+                'post_mime_type' => "application/pdf",
+                'post_title'     => preg_replace('/\.[^.]+$/', '', $name_file),
+                'post_content'   => '',
+                'post_status'    => 'inherit'
+            ), $content_directory . $name_file);
+            return $upload_id;
+        } else {
+            echo "Error: el archivo no fue subido.";
+            return false;
+        }
+    }
+}
+
+function createOffer($idFile)
 {
     if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['action']) &&  $_POST['action'] == "new_post") {
         // Do some minor form validation to make sure there is content
@@ -26,6 +69,7 @@ function createOffer()
                 'integrador' => $_POST['integrador'],
                 'valor' => $_POST['valor'],
                 'asesor_comercial' => $_POST['asesor_comercial'],
+                'adjunto' => $idFile,
                 // 'adjunto' => $newupload,
             ),
             // 'tags_input'    => array($tags),
@@ -36,5 +80,15 @@ function createOffer()
         $pid = wp_insert_post($new_post);
         //insert taxonomies
         echo $pid . 'Hecho, oferta guardada';
+    }
+}
+
+function postingOffer()
+{
+    // upload file & create offer
+    $fileId = uploadOfferFile();
+    // create offer in content type
+    if ($fileId) {
+        createOffer($fileId);
     }
 }

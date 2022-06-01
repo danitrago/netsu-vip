@@ -46,7 +46,7 @@ $current_user = wp_get_current_user();
 
 				<!-- New Post Form -->
 				<div id="postbox">
-					<form id="new_post" name="new_post" method="post" action="">
+					<form id="new_post" name="new_post" method="post" action="" enctype="multipart/form-data">
 
 						<!-- post name -->
 						<p><label for="title">Título</label><br />
@@ -70,16 +70,16 @@ $current_user = wp_get_current_user();
 
 						<!-- post name -->
 						<p><label for="adjunto">Adjunto</label><br />
-							<input type="file" id="adjunto" value="" tabindex="1" size="20" name="adjunto" required />
+							<input type="file" id="adjunto" value="" tabindex="1" size="20" name="adjunto" required accept="application/pdf" />
 						</p>
-
+						
 						<p align="right"><input type="submit" value="Publish" tabindex="6" id="submit" name="submit" /></p>
 
 						<input type="hidden" name="action" value="new_post" />
 						<?php wp_nonce_field('new-post'); ?>
 					</form>
 
-					<?php createOffer(); ?>
+					<?php postingOffer(); ?>
 
 				</div>
 
