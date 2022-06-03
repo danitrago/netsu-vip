@@ -6,13 +6,9 @@ get_header();
 
 <main id="main" class="content-wrapper" style="display:flex">
 	<div>
-		<h3>Filtrar</h3>
-		<h5><?php echo get_post_type() ?></h5>
-		<ul>
-			<?php
-			filterRequest();
-			?>
-		</ul>
+		<?php
+		netsu_filter_box('contract_type', 'Tipo de Contrato', 'requests');
+		?>
 	</div>
 	<div>
 		<?php if (have_posts()) : ?>
