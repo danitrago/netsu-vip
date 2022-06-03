@@ -7,6 +7,7 @@ get_header();
 <main id="main" class="content-wrapper" style="display:flex">
 	<div>
 		<?php
+		netsu_request_search_form();
 		netsu_filter_box('contract_type', 'Tipo de Contrato', 'requests');
 		?>
 	</div>

@@ -25,6 +25,20 @@ add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 10);
 
 // END ENQUEUE PARENT ACTION
 
+function render_search_template( $template ) {
+   global $wp_query;
+   $post_type = get_query_var( 'post_type' );
+
+   if ( ! empty( $wp_query->is_search ) && $post_type == 'requests') {
+      return locate_template( 'search-requests.php' );  //  redirect to custom-post-type-search.php
+   }
+
+   return $template;
+}
+
+add_filter( 'template_include', __NAMESPACE__ . '\\render_search_template' );
+
 require_once 'template-parts/filter-box.php';
 require_once 'template-parts/offer-form/offer-form-layout.php';
+require_once 'template-parts/requests-search-form/requests-search-form-layout.php';
 require_once 'utils/create-offer-post.php';
