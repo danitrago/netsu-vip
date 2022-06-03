@@ -26,5 +26,5 @@ add_action('wp_enqueue_scripts', 'child_theme_configurator_css', 10);
 // END ENQUEUE PARENT ACTION
 
 require_once 'template-parts/filter-box.php';
-require_once 'template-parts/form-post-offer.php';
+require_once 'template-parts/offer-form/offer-form-layout.php';
 require_once 'utils/create-offer-post.php';

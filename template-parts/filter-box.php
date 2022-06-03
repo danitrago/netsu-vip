@@ -4,7 +4,7 @@ function netsu_filter_box($tax, $title, $slug)
 {
     $terms = get_terms([
         'taxonomy' => $tax,
-        'hide_empty' => false,
+        'hide_empty' => true,
     ]);
     echo "<h5>" . $title . "</h5>";
     echo "<ul>";
