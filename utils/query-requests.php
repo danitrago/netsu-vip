@@ -18,6 +18,11 @@ function query_requests()
                 'key' => 'pais',
                 'value' => get_query_var('pais'),
                 'compare' => 'LIKE',
+            ),
+            array(
+                'key' => 'presupuesto',
+                'value' => get_query_var('presupuesto'),
+                'compare' => '>=',
             )
         )
     );

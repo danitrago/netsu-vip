@@ -22,6 +22,12 @@ function netsu_request_search_form()
     // country
     select_input('pais', $countries, 'País', get_query_var('pais'));
 
+     // budget from
+     echo '
+     <input type="number" class="search-field" placeholder="Presupuesto desde..." value="' . get_query_var('presupuesto') . '" name="presupuesto" tabindex="-1">
+     <br />
+     ';
+
     echo '<input type="submit" class="search-submit" value="Buscar">';
     echo '</form>';
 }

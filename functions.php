@@ -32,6 +32,7 @@ $state_to_show = 'Recepción de cotizaciones';
 function rj_add_query_vars_filter( $vars ){
     $vars[] = "pais";
     $vars[] = "test";
+    $vars[] = "presupuesto";
     return $vars;
 }
 add_filter( 'query_vars', 'rj_add_query_vars_filter' );
