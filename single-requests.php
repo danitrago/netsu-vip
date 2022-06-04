@@ -17,6 +17,10 @@ $current_user = wp_get_current_user();
 			the_post();
 		?>
 			<div class="archive-item">
+				<?php
+				    $variable = get_field('pais');
+					echo $variable . '-';
+				?>
 				<div class="post-title">
 					<h1><small>ID:<?php echo get_the_ID(); ?></small> - <?php the_title(); ?></h1>
 				</div>
