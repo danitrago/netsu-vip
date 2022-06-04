@@ -1,31 +1,27 @@
 <?php
-function netsu_request_search_form($tax)
+function netsu_request_search_form()
 {
-    $terms = get_terms([
-        'taxonomy' => $tax,
+    global $requests_taxonomy;
+    $tax_terms = get_terms([
+        'taxonomy' => $requests_taxonomy,
         'hide_empty' => true,
     ]);
+    global $wpdb;
+    $countries = $wpdb->get_results("SELECT DISTINCT meta_value as name, meta_value as slug FROM `wp_postmeta` WHERE meta_key = 'pais'");
 
+    echo '<form role="search" method="get" class="search-form" action="' . home_url() . '">';
+    echo '<input name="post_type" value="requests" hidden>';
+    // search keyword
     echo '
-    <form role="search" method="get" class="search-form" action="http://localhost/vip-netsu/">
-        <label>
-        <span class="screen-reader-text">Buscar por:</span>
-        <input type="search" class="search-field" placeholder="Buscar …" value="" name="s" tabindex="-1" required>
-        <br />
-        <select name="contract_type">
-        <option value="">Seleccionar</option>
-        ';
+    <input type="search" class="search-field" placeholder="Buscar …" value="' . get_query_var('s') . '" name="s" tabindex="-1">
+    <br />
+    ';
 
-    foreach ($terms as $term) {
-        echo "<option value='{$term->slug}'>{$term->name}</option>";
-    };
+    // contract type
+    select_input($requests_taxonomy, $tax_terms, 'Tipo de contrato', get_query_var($requests_taxonomy));
+    // country
+    select_input('pais', $countries, 'País', get_query_var('pais'));
 
-    echo '
-        </select>
-        <br />
-        <input name="post_type" value="requests" hidden>
-        </label>
-        <input type="submit" class="search-submit" value="Buscar">
-        </form>
-        ';
+    echo '<input type="submit" class="search-submit" value="Buscar">';
+    echo '</form>';
 }
