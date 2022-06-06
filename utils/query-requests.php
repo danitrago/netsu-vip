@@ -9,6 +9,8 @@ function query_requests()
         'post_type' => $post_type_requests,
         's' => get_query_var('s'),
         'contract_type' => get_query_var($requests_taxonomy),
+        'paged' =>  get_query_var('paged') ? get_query_var('paged') : get_query_var('page'), // usign "paged" for search OR "page" for archive
+        'posts_per_page' => 3,
         'meta_query' => array(
             array(
                 'key' => 'estado',
