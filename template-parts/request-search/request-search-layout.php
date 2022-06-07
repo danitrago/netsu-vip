@@ -1,5 +1,5 @@
 <?php
-function netsu_request_search_form()
+function request_search_layout()
 {
     global $requests_taxonomy;
     $tax_terms = get_terms([

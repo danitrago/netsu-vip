@@ -56,7 +56,7 @@ function formPostOffer()
 
         <?php
         // add logic for POST
-        postingOffer();
+        posting_offer();
         ?>
 
     </div>

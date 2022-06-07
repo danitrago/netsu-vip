@@ -1,6 +1,6 @@
 <?php
 
-function uploadOfferFile()
+function upload_offer_file()
 {
     if (isset($_FILES['adjunto'])) {
 
@@ -43,7 +43,7 @@ function uploadOfferFile()
     }
 }
 
-function createOffer($idFile)
+function create_offer($idFile)
 {
     if ('POST' == $_SERVER['REQUEST_METHOD'] && !empty($_POST['action']) &&  $_POST['action'] == "new_post") {
         // Do some minor form validation to make sure there is content
@@ -87,12 +87,12 @@ function createOffer($idFile)
     }
 }
 
-function postingOffer()
+function posting_offer()
 {
     // upload file & create offer
-    $fileId = uploadOfferFile();
+    $fileId = upload_offer_file();
     // create offer in content type
     if ($fileId) {
-        createOffer($fileId);
+        create_offer($fileId);
     }
 }
