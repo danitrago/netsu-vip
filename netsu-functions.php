@@ -9,7 +9,6 @@ $state_to_show = 'Recepción de cotizaciones';
 // adding query string vars
 function rj_add_query_vars_filter( $vars ){
     $vars[] = "pais";
-    $vars[] = "test";
     $vars[] = "presupuesto";
     return $vars;
 }
