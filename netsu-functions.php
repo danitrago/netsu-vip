@@ -45,3 +45,7 @@ require_once 'fns/query-requests.php';
 
 // SHORTCODES
 add_shortcode('netsu-account', 'user_account_layout');
+
+// Adding Tailwind TEST
+wp_register_script( 'tailwind-script', 'https://cdn.tailwindcss.com');
+wp_enqueue_script( 'tailwind-script' );
