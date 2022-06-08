@@ -33,6 +33,7 @@ add_filter('template_include', __NAMESPACE__ . '\\render_search_template');
 
 // importing template parts and functions
 require_once 'template-parts/user-account/user-account-layout.php';
+require_once 'template-parts/search-keyword/search-keyword-layout.php';
 require_once 'template-parts/request-search/request-search-layout.php';
 require_once 'template-parts/form-inputs/select-input.php';
 require_once 'template-parts/request-card/request-card-layout.php';
@@ -49,3 +50,6 @@ add_shortcode('netsu-account', 'user_account_layout');
 // Adding Tailwind TEST
 wp_register_script( 'tailwind-script', 'https://cdn.tailwindcss.com');
 wp_enqueue_script( 'tailwind-script' );
+
+wp_register_style( 'fontawesome-css', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css');
+wp_enqueue_style( 'fontawesome-css' );
