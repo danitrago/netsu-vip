@@ -8,14 +8,16 @@ get_header();
     <div class="w-full">
         <?php search_keyword_layout() ?>
     </div>
-    <div class="w-full flex">
-        <div class="basis-1/4">
-            <h2 class="text-xl font-semibold mb-5">Filtrar</h2>
-            <?php
-            request_search_layout();
-            ?>
+    <div class="w-full flex flex-col md:flex-row gap-3">
+        <div class="basis-1/4 mb-6">
+            <div class="sticky top-8">
+                <h2 class="text-xl font-semibold mb-5">Filtrar</h2>
+                <?php
+                request_search_layout();
+                ?>
+            </div>
         </div>
-        <div class="basis-3/4 pl-12">
+        <div class="basis-3/4 lg:pl-12">
             <?php
             // get data
             $query_result = query_requests();
@@ -52,7 +54,7 @@ get_header();
                 <div class="text-center py-6">
                     <i class="fa fa-frown text-7xl mb-6 text-teal-400 animate-pulse"></i>
                     <h2 class="text-2xl text-center">¡Ups!, no se encontraron resultados</h2>
-                    <p>Intenta de nuevo con unos filtros de búsqueda diferentes.</p><br/>
+                    <p>Intenta de nuevo con unos filtros de búsqueda diferentes.</p><br />
                     <a href="<?php echo home_url() ?>"><i class="fa fa-times mr-2"></i>Limpiar filtros</a>
                 </div>
             <?php

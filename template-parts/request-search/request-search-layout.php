@@ -12,7 +12,7 @@ function request_search_layout()
 
 ?>
     <form role="search" method="get" action="<?php echo home_url() ?>">
-        <input type="search" class="p-3 h-12 rounded-none" placeholder="¿Qué estás buscando?" value="<?php echo get_query_var('s') ?>" name="s" tabindex="-1" hidden>
+        <input id="search-filter" type="search" class="p-3 h-12 rounded-none" placeholder="¿Qué estás buscando?" value="<?php echo get_query_var('s') ?>" name="s" tabindex="-1" hidden>
 
         <div class="mb-6 pl-3">
             <h3 class="font-semibold mb-3">Tipo de Contrato</h3>
