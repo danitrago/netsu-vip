@@ -2,7 +2,7 @@
 function pagination_layout($query_result)
 {
 ?>
-    <div class="pagination">
+    <div class="pagination flex gap-3 border border-teal-400 float-right px-5 py-3">
         <?php
         echo paginate_links(array(
             'base'         => str_replace(999999999, '%#%', esc_url(get_pagenum_link(999999999))),
