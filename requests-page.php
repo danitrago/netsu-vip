@@ -8,14 +8,14 @@ get_header();
     <div class="w-full">
         <?php search_keyword_layout() ?>
     </div>
-    <div class="w-full flex">
-        <div class="basis-1/4">
+    <div class="w-full flex flex-col md:flex-row gap-3">
+        <div class="basis-1/4 mb-6">
             <h2 class="text-xl font-semibold mb-5">Filtrar</h2>
             <?php
             request_search_layout();
             ?>
         </div>
-        <div class="basis-3/4 pl-12">
+        <div class="basis-3/4 lg:pl-12">
             <?php
             // get data
             $query_result = query_requests();
