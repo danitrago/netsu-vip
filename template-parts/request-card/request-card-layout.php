@@ -24,7 +24,8 @@ function request_card_layout()
             </span>
         </div>
         <div class="mb-5">
-            <?php the_content(); ?>
+            <?php the_excerpt(); ?>
+            <br/>
             Marcas: 
             <?php
             foreach (get_post_meta(get_the_ID(), 'marcas', TRUE) as &$marca) {
