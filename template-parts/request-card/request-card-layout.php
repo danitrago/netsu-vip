@@ -28,9 +28,7 @@ function request_card_layout()
             <br/>
             Marcas: 
             <?php
-            foreach (get_post_meta(get_the_ID(), 'marcas', TRUE) as &$marca) {
-                echo $marca . ',';
-            }
+            echo implode(", ", get_post_meta(get_the_ID(), 'marcas', TRUE));
             ?>
         </div>
         <div>

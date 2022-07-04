@@ -37,33 +37,17 @@ $current_user = wp_get_current_user();
 						</div>
 						<div class="mb-5">
 							<?php the_content(); ?>
-							Marcas:
-							<?php
-							foreach (get_post_meta(get_the_ID(), 'marcas', TRUE) as &$marca) {
-								echo $marca . ',';
-							}
-							?>
 						</div>
-						<div>
-							<span class="text-sm">Vence:
-								<?php
-								echo date_format(date_create(get_post_meta(get_the_ID(), 'fecha_de_cierre', TRUE)), "d/m/Y");
-								?>
-							</span>
-						</div>
-						<?php the_meta(); ?>
-						<br/>
-						<h2 class="text-xl font-semibold mb-3">Detalles de la solicitud</h2>
+						<h3 class="mb-4">Detalles de la solicitud</h3>
 						<table>
 							<tbody>
-								<tr>
-									<td>
-										Vence
-									</td>
-									<td>
-										<?php echo get_post_meta(get_the_ID(), 'fecha_de_cierre', TRUE); ?>
-									</td>
-								</tr>
+								<tr><?php table_row_layout('Empresa', 'empresa') ?></tr>
+								<tr><?php table_row_layout('Pais', 'pais') ?></tr>
+								<tr><?php table_row_layout('Presupuesto en USD', 'presupuesto', 'number') ?></tr>
+								<tr><?php table_row_layout('Cantidad de productos', 'cantidad', 'number') ?></tr>
+								<tr><?php table_row_layout('Marcas', 'marcas', 'array') ?></tr>
+								<tr class="bg-lime-100 font-semibold"><?php table_row_layout('Fecha de cierre', 'fecha_de_cierre', 'date') ?></tr>
+								<tr><?php table_row_layout('Fecha de compra', 'fecha_de_compra', 'date') ?></tr>
 							</tbody>
 						</table>
 

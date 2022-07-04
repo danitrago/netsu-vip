@@ -39,6 +39,7 @@ require_once 'template-parts/form-inputs/select-input.php';
 require_once 'template-parts/request-card/request-card-layout.php';
 require_once 'template-parts/pagination/pagination-layout.php';
 require_once 'template-parts/offer-form/offer-form-layout.php';
+require_once 'template-parts/table-row/table-row-layout.php';
 
 require_once 'fns/create-offer-post.php';
 require_once 'fns/query-requests.php';
