@@ -47,11 +47,5 @@ require_once 'fns/query-requests.php';
 // SHORTCODES
 add_shortcode('netsu-account', 'user_account_layout');
 
-// Adding Tailwind TEST
-add_action( 'astra_header_before','add_tailwind_test' );
-function add_tailwind_test () { ?> 
- <script src="https://cdn.tailwindcss.com"></script>
-<?php }
-
 wp_register_style( 'fontawesome-css', 'https://use.fontawesome.com/releases/v5.15.4/css/all.css');
 wp_enqueue_style( 'fontawesome-css' );

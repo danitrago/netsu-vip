@@ -1,0 +1,22 @@
+{
+  "name": "astra-child",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danitrago/netsu-vip.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danitrago/netsu-vip/issues"
+  },
+  "homepage": "https://github.com/danitrago/netsu-vip#readme",
+  "devDependencies": {
+    "tailwindcss": "^3.1.4"
+  }
+}
