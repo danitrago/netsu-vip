@@ -28,6 +28,7 @@ if (!defined('ABSPATH')) {
 	<link rel="profile" href="https://gmpg.org/xfn/11">
 	<?php wp_head(); ?>
 	<?php astra_head_bottom(); ?>
+	<script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 </head>
 
 <body <?php astra_schema_body(); ?> <?php body_class(); ?>>
