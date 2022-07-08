@@ -20,7 +20,8 @@ function upload_offer_file()
         $ext = $path_parts['extension'];
 
         if (!in_array($ext, $allow_extensions)) {
-            echo "Error: El archivo debe estar en formato PDF.";
+            // echo "Error: El archivo debe estar en formato PDF.";
+            echo '<script>swal("¡Ups!", "El archivo debe estar en formato PDF.", "error");</script>';
             return false;
         }
 
@@ -37,7 +38,8 @@ function upload_offer_file()
             ), $content_directory . $name_file);
             return $upload_id;
         } else {
-            echo "Error: el archivo no fue subido.";
+            // echo "Error: el archivo no fue subido.";
+            echo '<script>swal("¡Ups!", "El archivo no fue subido.", "error");</script>';
             return false;
         }
     }
@@ -50,7 +52,8 @@ function create_offer($idFile)
         if (isset($_POST['title'])) {
             $title =  $_POST['title'];
         } else {
-            echo 'Please enter a  title - se envió: ' . print_r($_POST);
+            // echo 'Please enter a  title - se envió: ' . print_r($_POST);
+            echo '<script>swal("¡Ups!", "Hubo un problema, por favor contacta al administrador.", "error");</script>';
             return;
         }
         // if (isset($_POST['description'])) {
@@ -83,7 +86,8 @@ function create_offer($idFile)
         //save the new post
         $pid = wp_insert_post($new_post);
         //insert taxonomies
-        echo $pid . 'Hecho, oferta guardada';
+        // echo $pid . 'Hecho, oferta guardada';
+        echo '<script>swal("¡Hecho!", "Tu oferta fue registrada.", "success");</script>';
     }
 }
 
