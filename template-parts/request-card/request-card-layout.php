@@ -16,17 +16,18 @@ function request_card_layout()
             |
             <span class="capitalize text-sm">
                 <?php $taxonomy_names = wp_get_post_terms(get_the_ID(), 'contract_type');
-                foreach ($taxonomy_names as $taxonomy) {
-                    // echo $taxonomy->slug . " : ";
+                foreach ($taxonomy_names as $key => $taxonomy) {
                     echo $taxonomy->name;
-                    echo ", ";
+                    if (($key + 1) < count($taxonomy_names)) {
+                        echo ", ";
+                    }
                 } ?>
             </span>
         </div>
         <div class="mb-5">
             <?php the_excerpt(); ?>
-            <br/>
-            Marcas: 
+            <br />
+            Marcas:
             <?php
             echo implode(", ", get_post_meta(get_the_ID(), 'marcas', TRUE));
             ?>

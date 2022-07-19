@@ -28,10 +28,11 @@ $current_user = wp_get_current_user();
 							|
 							<span class="capitalize text-sm">
 								<?php $taxonomy_names = wp_get_post_terms(get_the_ID(), 'contract_type');
-								foreach ($taxonomy_names as $taxonomy) {
-									// echo $taxonomy->slug . " : ";
+								foreach ($taxonomy_names as $key => $taxonomy) {
 									echo $taxonomy->name;
-									echo ", ";
+									if (($key + 1) < count($taxonomy_names)) {
+										echo ", ";
+									}
 								} ?>
 							</span>
 						</div>
@@ -42,7 +43,7 @@ $current_user = wp_get_current_user();
 						<table>
 							<tbody>
 								<tr><?php table_row_layout('Empresa', 'empresa') ?></tr>
-								<tr><?php table_row_layout('Pais', 'pais') ?></tr>
+								<tr><?php table_row_layout('País', 'pais') ?></tr>
 								<tr><?php table_row_layout('Presupuesto en USD', 'presupuesto', 'number') ?></tr>
 								<tr><?php table_row_layout('Cantidad de productos', 'cantidad', 'number') ?></tr>
 								<tr><?php table_row_layout('Marcas', 'marcas', 'array') ?></tr>
