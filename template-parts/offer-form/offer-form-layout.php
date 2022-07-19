@@ -13,7 +13,7 @@ function formPostOffer()
             <input type="text" id="title" value="<?php echo get_the_ID() ?> - OFERTA" readonly tabindex="1" size="20" name="title" required hidden />
             <input type="text" id="integrador" value="<?php echo $current_user->user_login; ?>" readonly tabindex="1" size="20" name="integrador" required hidden />
             <div class="flex flex-col md:flex-row gap-4">
-                <div class="mb-4 w-full"><label class="mb-2 block" for="valor">Valor*</label>
+                <div class="mb-4 w-full"><label class="mb-2 block" for="valor">Valor* (en USD)</label>
                     <input class="<?php echo $inputs_classes ?>" type="number" id="valor" value="" tabindex="1" size="20" name="valor" required />
                 </div>
                 <div class="mb-4 w-full"><label class="mb-2 block" for="asesor_comercial">Asesor comercial*</label>
