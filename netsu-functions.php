@@ -43,6 +43,7 @@ require_once 'template-parts/table-row/table-row-layout.php';
 
 require_once 'fns/create-offer-post.php';
 require_once 'fns/query-requests.php';
+require_once 'fns/countries-list.php';
 
 
 // SHORTCODES

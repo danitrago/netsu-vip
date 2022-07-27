@@ -23,7 +23,9 @@ $current_user = wp_get_current_user();
 							<h1 class="text-3xl font-semibold mb-2"><?php the_title(); ?></h1>
 							<span class="capitalize text-sm">
 								<i class="fas fa-map-marker-alt text-teal-400"></i>
-								<?php echo get_post_meta(get_the_ID(), 'pais', TRUE); ?>
+								<?php
+								echo implode(", ", get_post_meta(get_the_ID(), 'pais', TRUE));
+								?>
 							</span>
 							|
 							<span class="capitalize text-sm">
@@ -43,7 +45,7 @@ $current_user = wp_get_current_user();
 						<table>
 							<tbody>
 								<tr><?php table_row_layout('Empresa', 'empresa') ?></tr>
-								<tr><?php table_row_layout('País', 'pais') ?></tr>
+								<tr><?php table_row_layout('País', 'pais', 'array') ?></tr>
 								<tr><?php table_row_layout('Presupuesto en USD', 'presupuesto', 'number') ?></tr>
 								<tr><?php table_row_layout('Cantidad de productos', 'cantidad', 'number') ?></tr>
 								<tr><?php table_row_layout('Marcas', 'marcas', 'array') ?></tr>
