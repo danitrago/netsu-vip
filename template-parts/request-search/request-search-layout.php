@@ -1,19 +1,16 @@
 <?php
 function request_search_layout()
 {
-    global $wpdb;
     global $requests_taxonomy;
     global $post_type_requests;
     $tax_terms = get_terms([
         'taxonomy' => $requests_taxonomy,
         'hide_empty' => true,
     ]);
-    $countries = $wpdb->get_results("SELECT DISTINCT meta_value as name, meta_value as slug FROM `wp_postmeta` WHERE meta_key = 'pais'");
-
+    $countries = countries_list();
 ?>
     <form role="search" method="get" action="<?php echo home_url() ?>">
         <input id="search-filter" type="search" class="p-3 h-12 rounded-none" placeholder="¿Qué estás buscando?" value="<?php echo get_query_var('s') ?>" name="s" tabindex="-1" hidden>
-
         <div class="mb-6 pl-3">
             <h3 class="font-semibold mb-3">Tipo de Contrato</h3>
             <?php

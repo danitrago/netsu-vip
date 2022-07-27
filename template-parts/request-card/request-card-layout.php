@@ -11,7 +11,9 @@ function request_card_layout()
             </a>
             <span class="capitalize text-sm">
                 <i class="fas fa-map-marker-alt text-teal-400"></i>
-                <?php echo get_post_meta(get_the_ID(), 'pais', TRUE); ?>
+                <?php
+                echo implode(", ", get_post_meta(get_the_ID(), 'pais', TRUE));
+                ?>
             </span>
             |
             <span class="capitalize text-sm">

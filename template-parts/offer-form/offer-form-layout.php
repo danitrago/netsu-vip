@@ -10,7 +10,7 @@ function formPostOffer()
         <form id="new_post" name="new_post" method="post" action="" enctype="multipart/form-data">
             <?php wp_nonce_field('new-post'); ?>
             <input type="hidden" name="action" value="new_post" />
-            <input type="text" id="title" value="<?php echo get_the_ID() ?> - OFERTA" readonly tabindex="1" size="20" name="title" required hidden />
+            <input type="text" id="title" value="<?php echo get_the_ID() ?> - <?php echo get_the_title() ?>" readonly tabindex="1" size="20" name="title" required hidden />
             <input type="text" id="integrador" value="<?php echo $current_user->user_login; ?>" readonly tabindex="1" size="20" name="integrador" required hidden />
             <div class="flex flex-col md:flex-row gap-4">
                 <div class="mb-4 w-full"><label class="mb-2 block" for="valor">Valor* (en USD)</label>
